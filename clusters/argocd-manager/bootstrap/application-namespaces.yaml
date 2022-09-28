@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: https://github.com/andrewkaczynski/minikube-prometheus.git
     targetRevision: HEAD
-    path: clusters/prometheus/namespaces
+    path: clusters/argocd-manager/namespaces
 
   destination:
     server: https://kubernetes.default.svc

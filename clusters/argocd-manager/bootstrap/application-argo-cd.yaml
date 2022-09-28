@@ -15,7 +15,7 @@ spec:
     helm:
       releaseName: argocd
       valueFiles:
-      - ../../../clusters/prometheus/applications/argo-cd/values.yaml
+      - ../../../clusters/argocd-manager/applications/argo-cd/values.yaml
 
   destination:
     server: https://kubernetes.default.svc

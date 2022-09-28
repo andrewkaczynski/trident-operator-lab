@@ -29,7 +29,7 @@ tasks:
   argocd-manager:helm-install:
     desc: 'Install ArgoCD on argocd-manager cluster using helm'
     cmds:
-      - helm install argocd -n argocd charts/argo-cd/4.10.0/ --values clusters/prometheus/applications/argo-cd/values.yaml --create-namespace --context kind-argocd-manager
+      - helm install argocd -n argocd charts/argo-cd/4.10.0/ --values clusters/argocd-manager/applications/argo-cd/values.yaml --create-namespace --kube-context kind-argocd-manager
 
 
   destroy:
