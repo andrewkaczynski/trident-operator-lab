@@ -1,0 +1,40 @@
+version: '3'
+
+vars:
+
+tasks:
+  build:
+    desc: 'Provision clusters'
+    cmds:
+      - task: kind:argocd-manager:start
+      - task: kind:warsaw:start
+      - task: kind:paris:start
+      - echo 'Cluster provisioning completed'
+
+  kind:argocd-manager:start:
+    desc: 'Start argocd-manager cluster'
+    cmds:
+      - kind create cluster --config clusters/argocd-manager/kind.yaml
+
+  kind:warsaw:start:
+    desc: 'Start warsaw cluster'
+    cmds:
+      - kind create cluster --config clusters/warsaw/kind.yaml
+
+  kind:paris:start:
+    desc: 'Start paris cluster'
+    cmds:
+      - kind create cluster --config clusters/paris/kind.yaml
+
+  argocd-manager:helm-install:
+    desc: 'Install ArgoCD on argocd-manager cluster using helm'
+    cmds:
+      - helm install argocd -n argocd charts/argo-cd/4.10.0/ --values clusters/prometheus/applications/argo-cd/values.yaml --create-namespace --context kind-argocd-manager
+
+
+  destroy:
+    desc: 'Destroy clusters'
+    cmds:
+      - kind delete cluster --name argocd-manager
+      - kind delete cluster --name warsaw
+      - kind delete cluster --name paris
