@@ -24,12 +24,12 @@ spec:
           valueFiles:
           - ../../../clusters/argocd-manager/applications/trident-operator/values.yaml
 
-        destination:
-          server: '{{url}}'
-          namespace: trident-operator
-        syncPolicy:
-          automated:
-            prune: true
-            selfHeal: true
-          syncOptions:
-          - CreateNamespace=true
+      destination:
+        server: '{{url}}'
+        namespace: trident-operator
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
