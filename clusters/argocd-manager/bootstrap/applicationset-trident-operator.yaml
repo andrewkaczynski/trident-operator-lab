@@ -8,7 +8,7 @@ spec:
   - clusters:
       selector:
         matchLabels:
-          trident-operator: true
+          trident-operator: 'true'
   template:
     metadata:
       name: '{{name}}-trident-operator'
