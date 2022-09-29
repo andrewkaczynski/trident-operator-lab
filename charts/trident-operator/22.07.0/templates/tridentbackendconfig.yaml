@@ -1,0 +1,11 @@
+{{ if .Values.tridentbackendconfig.enabled }}
+apiVersion: trident.netapp.io/v1
+kind: TridentBackendConfig
+metadata:
+  name: trident-backend-config-default
+  namespace: {{ .Release.Namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  {{ .Values.tridentbackendconfig.config | toYaml | indent 2 | trim }}
+{{ end }}

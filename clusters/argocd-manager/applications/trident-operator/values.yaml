@@ -1,1 +1,12 @@
-## Empty
+tridentbackendconfig:
+  enabled: true
+  config:
+    version: 1
+    backendName: nas-backend
+    storageDriverName: ontap-nas
+    managementLIF: 8.8.8.8
+    dataLIF: 4.4.4.4
+    svc: "demo"
+    autoExportPolicy: true
+    credentials:
+      name: trident-backend-config-default-credentials
