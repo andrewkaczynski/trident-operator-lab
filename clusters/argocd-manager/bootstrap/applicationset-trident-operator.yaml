@@ -5,13 +5,13 @@ metadata:
   namespace: argocd
 spec:
   generators:
-  - list:
-      elements:
-      - cluster: kind-warsaw
-        url: https://warsaw-control-plane:6443
+  - clusters:
+      selector:
+        matchLabels:
+          trident-operator: true
   template:
     metadata:
-      name: '{{cluster}}-trident-operator'
+      name: '{{name}}-trident-operator'
     spec:
       project: default
       source:
@@ -25,7 +25,7 @@ spec:
           - ../../../clusters/argocd-manager/applications/trident-operator/values.yaml
 
       destination:
-        server: '{{url}}'
+        server: '{{server}}'
         namespace: trident-operator
       syncPolicy:
         automated:
