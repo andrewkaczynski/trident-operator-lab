@@ -24,9 +24,9 @@ argo-cd:
       namespace: argocd
       project: default
       source:
-        repoURL: https://github.com/andrewkaczynski/minikube-prometheus.git
+        repoURL: https://github.com/andrewkaczynski/trident-operator-lab.git
         targetRevision: HEAD
-        path: clusters/prometheus/bootstrap
+        path: clusters/argocd-manager/bootstrap
       destination:
         server: https://kubernetes.default.svc
         namespace: argocd
