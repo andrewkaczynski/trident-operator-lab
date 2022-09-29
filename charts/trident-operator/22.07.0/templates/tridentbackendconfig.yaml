@@ -5,7 +5,7 @@ metadata:
   name: trident-backend-config-default
   namespace: {{ .Release.Namespace }}
   annotations:
-    argocd.argoproj.io/sync-wave: "5"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   {{ .Values.tridentbackendconfig.config | toYaml | indent 2 | trim }}
 {{ end }}
